@@ -36,3 +36,11 @@
     transform: rotate(360deg);
   }
 }
+
+.cant-drink {
+  background-color: blue;
+}
+
+.can-drink {
+  background-color: green;
+}

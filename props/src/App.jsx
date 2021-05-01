@@ -12,6 +12,8 @@ function Navbar(props) {
 }
 
 function Footer(props) {
+  console.log("PROPS: FROM FOOTER", props);
+
   return (
     <footer>
       Hello {props.user.firstName} {props.user.lastName}
@@ -57,9 +59,9 @@ function MyButton(props) {
 
 function CanDrink(props) {
   if (!props.age || props.age < 18) {
-    return <div>Opps, youre not allowed to drink</div>;
+    return <div className="cant-drink">Opps, youre not allowed to drink</div>;
   }
-  return <div>Living la vida drunka</div>;
+  return <div className="can-drink">Living la vida drunka</div>;
 }
 
 function App() {
