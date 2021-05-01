@@ -12,7 +12,6 @@ function Navbar(props) {
 }
 
 function Footer(props) {
-  console.log("props: ", props);
   return (
     <footer>
       Hello {props.user.firstName} {props.user.lastName}
@@ -22,14 +21,38 @@ function Footer(props) {
 
 class KitchenSink extends React.Component {
   render() {
+    this.props.func();
     console.log(this.props);
     return (
       <div>
         This is the kitchen sink
         <div>First kind: {this.props.type}</div>
+        <this.props.Component />
       </div>
     );
   }
+}
+
+function NotPregnantAnymore(props) {
+  console.log("props:  in the non abortion component", props);
+  return <h1>{props.children}</h1>;
+}
+
+function MyButton(props) {
+  const { color = "white", background } = props;
+  return (
+    <div
+      style={{
+        padding: "2rem 5rem",
+        background: props.background,
+        width: "40%",
+        borderRadius: "50%",
+        color: color,
+      }}
+    >
+      {props.children}
+    </div>
+  );
 }
 
 function App() {
@@ -38,13 +61,25 @@ function App() {
     lastName: "Udovic",
   };
 
+  function doSomething() {
+    console.log("DONE SOMETHING, CHACHING");
+  }
+
   return (
     <div className="App">
+      <MyButton color="white" background="red">
+        My humps
+      </MyButton>
+      <MyButton background="green">My humps</MyButton>
+      <NotPregnantAnymore>Buenos dias, Luis</NotPregnantAnymore>
+      <NotPregnantAnymore>Buenos dias, Brittney</NotPregnantAnymore>
       <Navbar name="Andre" user={user} />
       <KitchenSink
         type="string"
         age={15}
         mufasa={["gizem", "brittney", "tadej", "tom", "ola"]}
+        func={doSomething}
+        Component={Mufasa}
       />
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
