@@ -1,6 +1,7 @@
 import React from "react";
 import logo from "./logo.svg"; // const logo = require("./logo.svg")
 import "./App.css";
+import zazu from "./image/logo192.png"; // we are catching the image on the same folder
 
 function Mufasa() {
   return <button>CLICK ME</button>;
@@ -57,11 +58,18 @@ function MyButton(props) {
   );
 }
 
+const logoVersion2TestPleaseDontBreak = "/logo192.png";
+
 function CanDrink(props) {
   if (!props.age || props.age < 18) {
     return <div className="cant-drink">Opps, youre not allowed to drink</div>;
   }
-  return <div className="can-drink">Living la vida drunka</div>;
+  return (
+    <div className="can-drink">
+      <p>Living la vida drunka</p>
+      <img src={logoVersion2TestPleaseDontBreak} />
+    </div>
+  );
 }
 
 function App() {
