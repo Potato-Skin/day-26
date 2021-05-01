@@ -55,6 +55,13 @@ function MyButton(props) {
   );
 }
 
+function CanDrink(props) {
+  if (!props.age || props.age < 18) {
+    return <div>Opps, youre not allowed to drink</div>;
+  }
+  return <div>Living la vida drunka</div>;
+}
+
 function App() {
   const user = {
     firstName: "Tadej",
@@ -67,6 +74,9 @@ function App() {
 
   return (
     <div className="App">
+      <CanDrink />
+      <CanDrink age={88} />
+      <CanDrink age={17} />
       <MyButton color="white" background="red">
         My humps
       </MyButton>
